@@ -1,0 +1,2 @@
+class CampaignTab < ApplicationRecord
+end

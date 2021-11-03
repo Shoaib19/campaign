@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Campaign Tabs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Purpose</th>
+      <th>Estimated duration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaign_tabs.each do |campaign_tab| %>
+      <tr>
+        <td><%= campaign_tab.title %></td>
+        <td><%= campaign_tab.purpose %></td>
+        <td><%= campaign_tab.estimated_duration %></td>
+        <td><%= link_to 'Show', campaign_tab %></td>
+        <td><%= link_to 'Edit', edit_campaign_tab_path(campaign_tab) %></td>
+        <td><%= link_to 'Destroy', campaign_tab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Campaign Tab', new_campaign_tab_path %>

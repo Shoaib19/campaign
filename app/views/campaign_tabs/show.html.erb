@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @campaign_tab.title %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @campaign_tab.purpose %>
+</p>
+
+<p>
+  <strong>Estimated duration:</strong>
+  <%= @campaign_tab.estimated_duration %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_tab_path(@campaign_tab) %> |
+<%= link_to 'Back', campaign_tabs_path %>
