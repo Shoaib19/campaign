@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @campaign_tab.title %>
-</p>
-
-<p>
-  <strong>Purpose:</strong>
-  <%= @campaign_tab.purpose %>
-</p>
-
-<p>
-  <strong>Estimated duration:</strong>
-  <%= @campaign_tab.estimated_duration %>
-</p>
-
-<%= link_to 'Edit', edit_campaign_tab_path(@campaign_tab) %> |
-<%= link_to 'Back', campaign_tabs_path %>
+<div class="card text-center">
+  <div class="card-header">
+    Campaign
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"> <%= @campaign_tab.title %></h5>
+    <p class="card-text"> <%= @campaign_tab.purpose %></p>
+    <a href="#" class="btn btn-warning btn-sm">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    <strong>Estimated duration:</strong>
+  <%= @campaign_tab.estimated_duration %> Days
+  </div>
+</div>
+<br>
+<br>
+<div class="buttons">
+<%= link_to 'Back', root_path, class:"btn btn-outline-secondary btn-sm " %>
+</div>

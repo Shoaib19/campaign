@@ -17,7 +17,7 @@
       <tr>
         <td><%= campaign_tab.title %></td>
         <td><%= campaign_tab.purpose %></td>
-        <td><%= campaign_tab.estimated_duration %></td>
+        <td><%= campaign_tab.estimated_duration %> days</td>
         <td><%= link_to 'Show', campaign_tab %></td>
         <td><%= link_to 'Edit', edit_campaign_tab_path(campaign_tab) %></td>
         <td><%= link_to 'Destroy', campaign_tab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,7 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Campaign Tab', new_campaign_tab_path %>

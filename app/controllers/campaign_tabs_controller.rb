@@ -51,7 +51,7 @@ class CampaignTabsController < ApplicationController
   def destroy
     @campaign_tab.destroy
     respond_to do |format|
-      format.html { redirect_to campaign_tabs_url, notice: "Campaign tab was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Campaign tab was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -64,6 +64,6 @@ class CampaignTabsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def campaign_tab_params
-      params.require(:campaign_tab).permit(:title, :purpose, :estimated_duration)
+      params.require(:campaign_tab).permit(:title, :purpose, :estimated_duration,:user_id)
     end
 end

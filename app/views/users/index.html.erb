@@ -2,8 +2,8 @@
 
 <h1>Users</h1>
 
-<table>
-  <thead>
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
     <tr>
       <th>Email</th>
       <th>Username</th>
@@ -11,7 +11,7 @@
       <th>Type</th>
       <th>Profession</th>
       <th>Service</th>
-      <th colspan="3"></th>
+      <th colspan="3" style="text-align:center">Actions</th>
     </tr>
   </thead>
 
@@ -24,14 +24,13 @@
         <td><%= user.user_type %></td>
         <td><%= user.profession %></td>
         <td><%= user.service %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
+        <%if check_user(user)%>
+         <td ><%= link_to 'details', user,  class:"btn btn-outline-secondary btn-sm" %></td>
+        <%else%>
+        <td>You can't change other expert's details</td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>

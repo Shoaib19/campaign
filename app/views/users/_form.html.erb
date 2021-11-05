@@ -10,33 +10,43 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
+<div class="field form-floating mb-3">
+    <%= f.text_field :username , disabled:true  ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
+    <%= f.label :username , for:"floatingInput"%>
   </div>
 
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+  <div class="field form-floating mb-3">
+    <%= f.email_field :email,  disabled:true ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
+    <%= f.label :email , for:"floatingInput"%><br />
   </div>
 
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.text_field :status %>
+  <div class="field form-floating mb-3">
+    <%= f.password_field :password, value:12345678 ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
+    <%= f.label :password, for:"floatingInput" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
   </div>
 
-  <div class="field">
-    <%= f.label :profession %>
-    <%= f.text_field :profession %>
+  <div class="field form-floating mb-3">
+    <%= f.select :user_type, options_for_select([["Novice","novice"],["Expert","expert"]]) , class:"form-select form-select-sm"%>
   </div>
 
-  <div class="field">
-    <%= f.label :service %>
-    <%= f.text_field :service %>
+  <div class="field form-floating mb-3">
+    <%= f.text_field :profession ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
+     <%= f.label :profession , for:"floatingInput"%>
+  </div>
+
+<div class="field form-floating mb-3">
+     <%= f.select :status, options_for_select([["Not Qualified","not qualified"],["Qualified","qualified"],["Banned","banned"]]), class:"form-select form-select-sm" %>
+  </div>
+  
+  <div class="field form-floating mb-3">
+    <%= f.text_field :service ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
+     <%= f.label :service , for:"floatingInput"%>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-outline-info" %>
   </div>
 <% end %>
