@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :campaign_tabs
   get 'home/index'
-
+  #get '/topic/error', to: 'topic#new'
   devise_for :users
   resources :users
   root to: "home#index"

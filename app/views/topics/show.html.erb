@@ -5,5 +5,9 @@
   <%= @topic.title %>
 </p>
 
+
+<%= link_to 'Back', campaign_tab_path(@topic.campaign_tab_id) %> |
+<% if get_user(@topic)%>
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= link_to 'Destroy', @topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>

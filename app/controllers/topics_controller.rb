@@ -12,6 +12,23 @@ class TopicsController < ApplicationController
 
   # GET /topics/new
   def new
+    campaign = CampaignTab.find(params[:id])
+    @id = campaign.id
+    @expert = campaign.user_id
+
+    topics = Topic.all
+    topics.each do |t|
+      if t.user_id == current_user.id
+        puts "***** in if =" + t.inspect.to_s
+        if t.expert_id == @expert
+          puts "**** true case *****"
+          render "error"
+        else
+          puts "**** false case *****"
+        
+        end
+      end
+    end
     @topic = Topic.new
   end
 
@@ -21,8 +38,9 @@ class TopicsController < ApplicationController
 
   # POST /topics or /topics.json
   def create
+    
+    #binding.pry
     @topic = Topic.new(topic_params)
-
     respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: "Topic was successfully created." }
@@ -64,6 +82,6 @@ class TopicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topic_params
-      params.require(:topic).permit(:title)
+      params.require(:topic).permit(:title, :user_id, :campaign_tab_id, :expert_id)
     end
 end

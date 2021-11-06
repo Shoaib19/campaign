@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211104063152) do
+ActiveRecord::Schema.define(version: 20211105105506) do
 
   create_table "campaign_tabs", force: :cascade do |t|
     t.string   "title"
@@ -42,8 +42,13 @@ ActiveRecord::Schema.define(version: 20211104063152) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.integer  "campaign_tab_id"
+    t.integer  "expert_id"
+    t.index ["campaign_tab_id"], name: "index_topics_on_campaign_tab_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

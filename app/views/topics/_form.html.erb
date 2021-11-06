@@ -15,7 +15,18 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+   
+   <div class="field">
+    <%= f.text_field :user_id, value: current_user.id, hidden:true %>
+  </div>
 
+  <div class="field">
+    <%= f.text_field :campaign_tab_id, value: @id, hidden:true %>
+  </div>
+
+<div class="field">
+    <%= f.text_field :expert_id, value: @expert, hidden:true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

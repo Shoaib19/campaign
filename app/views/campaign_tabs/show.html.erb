@@ -6,7 +6,16 @@
   <div class="card-body">
     <h5 class="card-title"> <%= @campaign_tab.title %></h5>
     <p class="card-text"> <%= @campaign_tab.purpose %></p>
-    <a href="#" class="btn btn-warning btn-sm">Go somewhere</a>
+    <strong>Topics</strong><br>
+    <% all_topics = find_topics(@campaign_tab)%>
+    <% all_topics.each do |t|%>
+    <%= link_to t.title, topic_path(id: t) , class:"link-success" %>
+    <%end%>
+    <br>
+    <br>
+    <% if current_user.user_type == "novice" && current_user.status == "qualified" %>
+    <%= link_to "Create Topic on this campaign", new_topic_path(id:@campaign_tab.id) ,class:"btn btn-warning btn-sm" %>
+    <%end%>
   </div>
   <div class="card-footer text-muted">
     <strong>Estimated duration:</strong>
