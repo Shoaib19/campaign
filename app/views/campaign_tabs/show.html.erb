@@ -16,6 +16,9 @@
     <% if current_user.user_type == "novice" && current_user.status == "qualified" %>
     <%= link_to "Create Topic on this campaign", new_topic_path(id:@campaign_tab.id) ,class:"btn btn-warning btn-sm" %>
     <%end%>
+    <br>
+    <br>
+    <%= link_to 'Comment', new_comment_path(item:@campaign_tab,from_model: "campaign"),class:"btn btn-warning btn-sm" %>
   </div>
   <div class="card-footer text-muted">
     <strong>Estimated duration:</strong>
@@ -23,7 +26,11 @@
   </div>
 </div>
 <br>
+<% arr = get_comments(@campaign_tab)%>
+<% arr.each do |c|%>
+<%=link_to  c.title, comment_path(c)%>
 <br>
+<%end%>
 <div class="buttons">
 <%= link_to 'Back', root_path, class:"btn btn-outline-secondary btn-sm " %>
 </div>

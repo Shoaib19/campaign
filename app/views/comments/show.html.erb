@@ -4,6 +4,13 @@
   <strong>Title:</strong>
   <%= @comment.title %>
 </p>
-
+<%if current_user.id == @comment.user_id%>
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Destroy', @comment, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%end%>
+
+<% if item_is(@comment)%>
+<%= link_to 'Back', topic_path(@comment.commented_on_id) %>
+<%else%>
+<%= link_to 'Back', campaign_tab_path(@comment.commented_on_id) %>
+<%end%>

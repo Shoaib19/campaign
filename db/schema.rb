@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211105105506) do
+ActiveRecord::Schema.define(version: 20211106161856) do
 
   create_table "campaign_tabs", force: :cascade do |t|
     t.string   "title"
@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 20211105105506) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "commented_on_type"
+    t.integer  "commented_on_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|

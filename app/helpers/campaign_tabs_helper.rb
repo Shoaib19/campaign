@@ -9,4 +9,8 @@ module CampaignTabsHelper
         end
         return arr
     end
+
+    def get_comments(c)
+        return c.comments.all
+    end
 end

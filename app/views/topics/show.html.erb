@@ -5,9 +5,16 @@
   <%= @topic.title %>
 </p>
 
-
+<%= link_to 'Comment', new_comment_path(item:@topic,from_model: "topic") %> |
 <%= link_to 'Back', campaign_tab_path(@topic.campaign_tab_id) %> |
 <% if get_user(@topic)%>
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Destroy', @topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>
+<br>
+<br>
+<% arr = get_comments(@topic)%>
+<% arr.each do |c|%>
+<%=link_to  c.title, comment_path(c)%>
+<br>
 <%end%>
