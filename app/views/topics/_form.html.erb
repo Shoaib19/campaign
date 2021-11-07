@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="field form-floating mb-3">
+    <%= f.text_field :title , id:"floatingInput",class:"form-control", placeholder:"aa" %>
+     <%= f.label :title ,for:"floatingInput" %>
   </div>
    
-   <div class="field">
-    <%= f.text_field :user_id, value: current_user.id, hidden:true %>
+   <div class="field form-floating mb-3">
+    <%= f.text_field :user_id, value: current_user.id, hidden:true , id:"floatingInput",class:"form-control", placeholder:"aa" %>
   </div>
 
-  <div class="field">
-    <%= f.text_field :campaign_tab_id, value: @id, hidden:true %>
+  <div class="field form-floating mb-3">
+    <%= f.text_field :campaign_tab_id, value: @id, hidden:true , id:"floatingInput",class:"form-control", placeholder:"aa" %>
   </div>
 
-<div class="field">
-    <%= f.text_field :expert_id, value: @expert, hidden:true %>
+<div class="field form-floating mb-3">
+    <%= f.text_field :expert_id, value: @expert, hidden:true , id:"floatingInput",class:"form-control", placeholder:"aa"%>
   </div>
   <div class="actions">
     <%= f.submit %>

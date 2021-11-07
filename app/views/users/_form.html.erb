@@ -18,15 +18,6 @@
   <div class="field form-floating mb-3">
     <%= f.email_field :email,  disabled:true ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
     <%= f.label :email , for:"floatingInput"%><br />
-  </div>
-
-  <div class="field form-floating mb-3">
-    <%= f.password_field :password, value:12345678 ,id:"floatingInput",class:"form-control", placeholder:"aa"%>
-    <%= f.label :password, for:"floatingInput" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-  </div>
 
   <div class="field form-floating mb-3">
     <%= f.select :user_type, options_for_select([["Novice","novice"],["Expert","expert"]]) , class:"form-select form-select-sm"%>

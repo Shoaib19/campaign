@@ -19,13 +19,8 @@ class TopicsController < ApplicationController
     topics = Topic.all
     topics.each do |t|
       if t.user_id == current_user.id
-        puts "***** in if =" + t.inspect.to_s
         if t.expert_id == @expert
-          puts "**** true case *****"
           render "error"
-        else
-          puts "**** false case *****"
-        
         end
       end
     end
@@ -69,7 +64,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to topics_url, notice: "Topic was successfully destroyed." }
+      format.html { redirect_to campaign_tab_path(@topic.campaign_tab_id), notice: "Topic was successfully destroyed." }
       format.json { head :no_content }
     end
   end

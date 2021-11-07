@@ -11,12 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="field form-floating mb-3">
+  <%= f.text_field :name , id:"floatingInput",class:"form-control", placeholder:"aa"%>
+    <%= f.label :name ,for:"floatingInput" %>
+  </div>
+
+<div class="field form-floating mb-3">
+    <%= f.text_field :campaign_tab_id , value: @id , hidden:true, id:"floatingInput",class:"form-control", placeholder:"aa"%>
+  </div>
+
+  <div class="field form-floating mb-3">
+    <%= f.text_field :user_id , value: current_user.id , hidden:true, id:"floatingInput",class:"form-control", placeholder:"aa"%>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  class:"btn btn-outline-warning"%>
   </div>
 <% end %>

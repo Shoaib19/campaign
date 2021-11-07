@@ -13,27 +13,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="field form-floating mb-3">
+    <%= f.text_field :title , id:"floatingInput",class:"form-control", placeholder:"aa"%>
+    <%= f.label :title ,for:"floatingInput"%>
   </div>
    
-   <div class="field">
-    <%= f.text_field :user_id, value: current_user.id, hidden:true %>
+   <div class="field form-floating mb-3">
+    <%= f.text_field :user_id, value: current_user.id, hidden:true,  id:"floatingInput",class:"form-control", placeholder:"aa" %>
   </div>
 
-  <div class="field">
-    <%= f.text_field :campaign_tab_id, value: @topic.campaign_tab_id, hidden:true%>
+  <div class="field form-floating mb-3">
+    <%= f.text_field :campaign_tab_id, value: @topic.campaign_tab_id, hidden:true, id:"floatingInput",class:"form-control", placeholder:"aa" %>
   </div>
 
-<div class="field">
-    <%= f.text_field :expert_id, value: @topic.expert_id, hidden:true %>
+<div class="field form-floating mb-3">
+    <%= f.text_field :expert_id, value: @topic.expert_id, hidden:true ,  id:"floatingInput",class:"form-control", placeholder:"aa"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-outline-warning"%>
   </div>
 <% end %>
 
 
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', campaign_tab_path(@topic.campaign_tab_id) %>
+<%= link_to 'Show', @topic , class:"btn btn-outline-info" %> 
+<%= link_to 'Back', campaign_tab_path(@topic.campaign_tab_id), class:"btn btn-outline-secondary" %>

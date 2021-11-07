@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211106161856) do
+ActiveRecord::Schema.define(version: 20211107081421) do
 
   create_table "campaign_tabs", force: :cascade do |t|
     t.string   "title"
@@ -34,14 +34,20 @@ ActiveRecord::Schema.define(version: 20211106161856) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "campaign_tab_id"
+    t.integer  "user_id"
+    t.index ["campaign_tab_id"], name: "index_tags_on_campaign_tab_id"
   end
 
   create_table "todos", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "campaign_tab_id"
+    t.integer  "user_id"
+    t.index ["campaign_tab_id"], name: "index_todos_on_campaign_tab_id"
   end
 
   create_table "topics", force: :cascade do |t|

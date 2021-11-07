@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          has_many :campaignTabs
          has_many :topics
+         
 end

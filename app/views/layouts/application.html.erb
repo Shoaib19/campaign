@@ -16,8 +16,12 @@
   </head>
   <body>
     <%= render "home/navbar"%>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+    <br>
+    <% if notice%>
+    <%= render 'layouts/alert'%>
+    <%end%>
+    <%= yield%>
+    </div>
   </body>
 </html>
