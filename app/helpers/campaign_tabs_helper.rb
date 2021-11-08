@@ -24,7 +24,11 @@ module CampaignTabsHelper
 
     def find_todo(campaign_tab)
          t = Todo.where(campaign_tab_id: campaign_tab.id).first
-         if t != nil then return t , t.title else return nil end
+         if t != nil
+            return t , t.title
+        else
+            return nil 
+        end
     end
     def get_comments(c)
         return c.comments.all
