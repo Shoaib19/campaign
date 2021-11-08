@@ -14,12 +14,13 @@ class TopicsController < ApplicationController
   def new
     campaign = CampaignTab.find(params[:id])
     @id = campaign.id
-    @expert = campaign.user_id
+    expert_user = campaign.user_id
 
     topics = Topic.all
     topics.each do |t|
       if t.user_id == current_user.id
-        if t.expert_id == @expert
+        found_expert = CampaignTab.find(t.campaign_tab_id).user_id
+        if found_expert != nil && found_expert == expert_user
           render "error"
         end
       end
@@ -77,6 +78,6 @@ class TopicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topic_params
-      params.require(:topic).permit(:title, :user_id, :campaign_tab_id, :expert_id)
+      params.require(:topic).permit(:title, :user_id, :campaign_tab_id)
     end
 end
