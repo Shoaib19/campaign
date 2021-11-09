@@ -20,7 +20,7 @@
     <%= f.label :email , for:"floatingInput"%><br />
 
   <div class="field form-floating mb-3">
-    <%= f.select :user_type, options_for_select([["Novice","novice"],["Expert","expert"]]) , class:"form-select form-select-sm"%>
+    <%= f.select :user_type, options_for_select([["Novice","novice"],["Expert","expert"]],user.user_type) , class:"form-select form-select-sm"%>
   </div>
 
   <div class="field form-floating mb-3">
